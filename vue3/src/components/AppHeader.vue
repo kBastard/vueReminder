@@ -19,6 +19,7 @@
           {title:'AddRemove', path: '/addRemove'},
           {title:'Calendar', path: '/calendar'},
           {title:'Markdown', path: '/markdown'},
+          {title:'Slider', path: '/slider'},
         ]
       }
     }
