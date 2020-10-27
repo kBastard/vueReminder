@@ -10,7 +10,7 @@ const routes = [
   { path: '/addRemove', component: AddRemove },
   { path: '/calendar', component: Calendar },
   { path: '/markdown', component: Markdown },
-  { path: '/slider', component: Slider }
+  { path: '/slider', component: Slider },
 ];
 
 const router = createRouter({
