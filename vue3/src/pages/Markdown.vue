@@ -3,7 +3,7 @@
         <h1 class="w-full text-center text-3xl">Markdown</h1>
         <section class="flex m-auto w-10/12 h-screen">
             <article class="w-1/2 border">
-                <textarea class="w-full h-full" :value="text" ></textarea>
+                <textarea class="w-full h-full" :value="text" ref="textAreaRef"></textarea>
             </article>
             <article class="w-1/2 border bg-gray-100" v-html="markedText">
             </article>
@@ -24,6 +24,9 @@
       markedText() {
         return marked(this.text);
       }
+    },
+    mounted() {
+      this.$refs.textAreaRef.focus();
     }
   }
 </script>

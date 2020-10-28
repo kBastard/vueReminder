@@ -8,7 +8,7 @@
             </li>
         </ul>
         <form class="mt-10" @submit.prevent="addHero">
-            <input class="border rounded" type="text" v-model="newHero">
+            <input class="border rounded" type="text" v-model="newHero" ref="newHeroRef">
             <button
                     class="border ml-5 p-1 rounded-lg bg-gradient-to-r from-red-700 to-pink-500"
                     type="submit">Submit</button>
@@ -46,6 +46,9 @@
       totalLength() {
         return this.dcHeroes.length;
       }
+    },
+    mounted() {
+      this.$refs.newHeroRef.focus();
     }
   }
 </script>
