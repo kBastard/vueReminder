@@ -26,6 +26,7 @@
           {title:'Markdown', path: '/markdown'},
           {title:'Slider', path: '/slider'},
           {title:'Calculator', path: '/calculator'},
+          {title:'Modal', path: '/modal'},
         ]
       }
     },
