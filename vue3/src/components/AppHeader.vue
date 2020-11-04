@@ -28,6 +28,7 @@
           {title:'Calculator', path: '/calculator'},
           {title:'Modal', path: '/modal'},
           {title:'Chat', path: '/chat'},
+          {title:'CRUD', path: '/crud'},
         ]
       }
     },

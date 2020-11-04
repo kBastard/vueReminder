@@ -11,7 +11,6 @@
                         <label>Username</label>
                         <input type="text"
                                name=""
-                               ref="emailRef"
                                class="rounded shadow p-2 w-full"
                                v-model="form.email"
                         >
@@ -61,7 +60,7 @@
       }
     },
     mounted() {
-        this.$refs.emailRef.focus();
+        // this.$refs.emailRef.focus();
     },
     data() {
       return {
