@@ -8,7 +8,8 @@
         >{{item
             .title}}</router-link>
 
-        <button v-if="!isLoggedIn" class="mx-2" @click="$emit('open-login-modal')">Login</button>
+        <button v-if="!isLoggedIn" class="mx-2" @click="$emit('open-login-modal')">Login
+        </button>
         <button v-else class="mx-2" @click="logout">Logout</button>
     </nav>
 </template>
@@ -17,7 +18,6 @@
   import firebase from '../utilities/firebase'
   export default {
     name: "AppHeader",
-    props: ['isLoggedIn'],
     data() {
       return {
         list: [
@@ -27,11 +27,19 @@
           {title:'Slider', path: '/slider'},
           {title:'Calculator', path: '/calculator'},
           {title:'Modal', path: '/modal'},
+          {title:'Chat', path: '/chat'},
         ]
+      }
+    },
+    computed: {
+      isLoggedIn() {
+        return this.$store.state.isLoggedIn
       }
     },
     methods: {
       logout() {
+        this.$store.commit('setIsLoggedIn', false);
+        this.$store.commit('setAuthUser', {});
         firebase.auth().signOut()
           // .then(res => {}).catch(e => {})
       }

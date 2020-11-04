@@ -31,6 +31,8 @@
     mounted() {
       firebase.auth().onAuthStateChanged(user => {
         if(user) {
+          this.$store.commit('setIsLoggedIn', true);
+          this.$store.commit('setAuthUser', user);
           this.isLoggedIn = true;
           this.authUser = user;
         } else {
