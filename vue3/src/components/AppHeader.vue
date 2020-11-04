@@ -29,6 +29,7 @@
           {title:'Modal', path: '/modal'},
           {title:'Chat', path: '/chat'},
           {title:'CRUD', path: '/crud'},
+          {title:'Tensor', path: '/tensor'},
         ]
       }
     },
