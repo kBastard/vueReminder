@@ -41,7 +41,7 @@
         collection: null,
         userId: null
       });
-      
+
 
       onMounted(async () => {
         chatsRef.on('child_added', (snapshot) => {

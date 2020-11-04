@@ -1,10 +1,10 @@
 <template>
-    <AppHeader :isLoggedIn="isLoggedIn" @open-login-modal="isLoginOpen = true"/>
+    <AppHeader />
     <div class="w-full flex">
         <router-view></router-view>
     </div>
     <teleport to="body">
-        <LoginModal v-if="isLoginOpen" @close-login="isLoginOpen = false"/>
+        <LoginModal />
     </teleport>
 </template>
 
@@ -19,7 +19,6 @@
     },
     data() {
       return {
-        isLoginOpen: false,
         isLoggedIn: false,
         authUser: {},
       }
@@ -29,13 +28,16 @@
     computed: {
     },
     mounted() {
+      console.log('na4alo');
       firebase.auth().onAuthStateChanged(user => {
         if(user) {
+          console.log(user);
           this.$store.commit('setIsLoggedIn', true);
           this.$store.commit('setAuthUser', user);
           this.isLoggedIn = true;
           this.authUser = user;
         } else {
+          console.log('netu');
           this.isLoggedIn = false;
           this.authUser = {};
         }

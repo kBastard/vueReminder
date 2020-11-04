@@ -8,7 +8,7 @@
         >{{item
             .title}}</router-link>
 
-        <button v-if="!isLoggedIn" class="mx-2" @click="$emit('open-login-modal')">Login
+        <button v-if="!isLoggedIn" class="mx-2" @click="openLogin">Login
         </button>
         <button v-else class="mx-2" @click="logout">Logout</button>
     </nav>
@@ -33,6 +33,7 @@
     },
     computed: {
       isLoggedIn() {
+        console.log(this.$store.state.isLoggedIn);
         return this.$store.state.isLoggedIn
       }
     },
@@ -42,6 +43,10 @@
         this.$store.commit('setAuthUser', {});
         firebase.auth().signOut()
           // .then(res => {}).catch(e => {})
+      },
+      openLogin() {
+        console.log('works');
+        this.$store.commit('setLoginModal', true);
       }
     }
   }

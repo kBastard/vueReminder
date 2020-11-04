@@ -1,5 +1,5 @@
 <template>
-
+    <div v-if="isLoginOpen">
     <section @click="close"
              class="z-20 h-screen w-screen bg-gray-500 top-0 fixed opacity-50"></section>
     <div class="absolute inset-0">
@@ -36,7 +36,7 @@
         </div>
 
     </div>
-
+    </div>
 </template>
 
 <script>
@@ -48,6 +48,7 @@
         this.isLoading = true;
         firebase.auth().signInWithEmailAndPassword(this.form.email, this.form.password).then(res => {
           console.log(res);
+          this.$store.commit('setIsLoggedIn', true);
           this.isLoading = false;
           this.close();
         }).catch( e => {
@@ -56,7 +57,7 @@
         });
       },
       close() {
-        this.$emit('close-login');
+        this.$store.commit('setLoginModal', false);
       }
     },
     mounted() {
@@ -69,6 +70,11 @@
           password: ''
         },
         isLoading: false,
+      }
+    },
+    computed: {
+      isLoginOpen() {
+        return this.$store.state.isLoginOpen
       }
     }
   }
